@@ -9,4 +9,5 @@ build
 # My configurations:
 *.db
 *.sql
+*.bak
 
