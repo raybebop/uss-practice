@@ -10,4 +10,5 @@ build
 *.db
 *.sql
 *.bak
+*.txt
 
