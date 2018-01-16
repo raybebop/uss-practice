@@ -43,7 +43,6 @@ def main():
     #    print '%s,%s' % (i[0], ','.join([str(n) for n in r]))
     for i in stocklist[:-1]:
         symbol = i[0].encode('utf-8')
-        #print '>>>', symbol
         dst = getLastNdays(symbol, 4)
         r = calVol(dst)
         print '%s,%s' % (symbol, ','.join([str(n) for n in r]))
