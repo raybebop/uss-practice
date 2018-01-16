@@ -1,3 +1,7 @@
-###fetch xueqie stock list info
+###Fetch xueqie stock list info
+###Enable this script by following steps:
+###Step 1. chmod 0644 xqlist.cron
+###Step 2. chown root. xqlist.cron 
+###Step 3. sudo ln -s $(pwd)/xqlist.cron /etc/cron.d
 15 9 * * 2,3,4,5,6 root /home/ray/workspace/uss-practice/fetchXueqiuList.py >>/tmp/fxq.log 2>>/tmp/fxq.err
 
