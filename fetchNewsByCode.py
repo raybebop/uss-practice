@@ -8,13 +8,14 @@ import sqlite3
 import operator
 import time
 import datetime
-from stockFilter import stockFilter
 import os, sys, re
 import string
 import requests
 import json
-from ussConf import *
+
+from ussBase import *
 from bs4 import BeautifulSoup
+from stockFilter import stockFilter
 
 def mainTableParse(table):
     keys= []
