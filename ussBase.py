@@ -7,9 +7,22 @@ import json
 import time
 import math
 
-import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+class xueqiuLib(object):
+    def __init__(self):
+        self.HTTP_HEADERS = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36',
+            'Content-type': 'application/x-www-form-urlencoded',
+            'cookie': setCookie()[-1]
+        }
+        self.HTTP_URI = {
+            'homepage': 'https://xueqiu.com',
+            'stocklist': 'https://xueqiu.com/stock/cata/stocklist.json?page=%PAGE&size=%SIZE&order=desc&orderby=percent&type=0%2C1%2C2%2C3&isdelay=1&_=%UNDERLINE',
+            'stockdata': 'https://xueqiu.com/stock/forchartk/stocklist.json?symbol=%SYMBOL&period=%PERIOD&type=normal&begin=%BEGIN_TS&end=%END_TS&_=%UNDERLINE',
+        }
+
 
 HTTP_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36',
@@ -28,7 +41,7 @@ HTTP_URI = {
     'stockdata': 'https://xueqiu.com/stock/forchartk/stocklist.json?symbol=%SYMBOL&period=%PERIOD&type=normal&begin=%BEGIN_TS&end=%END_TS&_=%UNDERLINE',
 }
 
-class sqliteHandler():
+class sqliteHandler(object):
     def __init__(self, dbfile):
         self.dbfile = dbfile
     def conn(self):
@@ -85,3 +98,8 @@ def setCookie():
         return r.status_code, r.headers['set-cookie']
     except Exception, e:
         return 600, str(e)
+
+if __name__ == '__main__':
+    haha = xueqiuLib()
+    print haha.HTTP_HEADERS
+    print haha.HTTP_URI
