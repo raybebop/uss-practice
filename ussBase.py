@@ -7,6 +7,7 @@ import json
 import time
 import math
 
+import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
@@ -19,7 +20,8 @@ class xueqiuLib(object):
         }
         self.HTTP_URI = {
             'homepage': 'https://xueqiu.com',
-            'stocklist': 'https://xueqiu.com/stock/cata/stocklist.json?page=%PAGE&size=%SIZE&order=desc&orderby=percent&type=0%2C1%2C2%2C3&isdelay=1&_=%UNDERLINE',
+            'us_stocklist': 'https://xueqiu.com/stock/cata/stocklist.json?page=%PAGE&size=%SIZE&order=desc&orderby=percent&type=0%2C1%2C2%2C3&isdelay=1&_=%UNDERLINE',
+            'hk_stocklist': 'https://xueqiu.com/stock/cata/stocklist.json?page=%PAGE&size=%SIZE&order=desc&orderby=percent&type=30&isdelay=1&_=%UNDERLINE',
             'stockdata': 'https://xueqiu.com/stock/forchartk/stocklist.json?symbol=%SYMBOL&period=%PERIOD&type=normal&begin=%BEGIN_TS&end=%END_TS&_=%UNDERLINE',
         }
 
