@@ -41,7 +41,7 @@ def main():
         print 'Usage: %s [day|week|month]\n' % sys.argv[0]
         sys.exit(1)
 
-    res = fetchKLine('WB', period, '2017-01-01')
+    res = fetchKLine('00992', period, '2017-01-01')
     if res.status_code == 200:
         data = json.loads(res.content)
         print json.dumps(data, indent=4)
