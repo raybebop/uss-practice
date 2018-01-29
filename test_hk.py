@@ -7,7 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 from collections import OrderedDict
 
-from ussBase import HTTP_HEADERS, http_get
+from ussBase import HTTP_HEADERS, http_get, time_now
 from hkConfig import *
 
 market_highlights = [
@@ -48,19 +48,23 @@ def sharesAnalyzer(ti):
     return ti
 
 def main():
-    #url = HKEX_DAYQUOT_TPL % "180126"
-    #print ">>>", url
-    #res = http_get(url, HTTP_HEADERS)
+    #tn = time_now()
+    #ts = re.sub(r'[-|:]', '', tn)
+    #print ts[2:8]
+    #sys.exit()
 
-    #if res.status_code == 200:
-    #    html = res.content
-    #    #print html
-    #    #print json.dumps(html, indent=4)
-    #else:
-    #    print 'ERROR: get stock data failed'
-    #    sys.exit(1)
+    url = HKEX_DAYQUOT_TPL % "180126"
+    print ">>>", url
+    res = http_get(url, HTTP_HEADERS)
+    if res.status_code == 200:
+        html = res.content
+        #print html
+        #print json.dumps(html, indent=4)
+    else:
+        print 'ERROR: get stock data failed'
+        sys.exit(1)
 
-    html = open('d180126e.htm', 'r').read()
+    #html = open('d180126e.htm', 'r').read()
     soup = BeautifulSoup(html, 'html.parser')
     mh = soup.find('a', attrs={'name':'market_highlights'})
     content = mh.next_sibling
