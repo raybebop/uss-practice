@@ -86,6 +86,9 @@ def genUrlByTemplate(tpl, val):
 def genTs(n):
     return n*1000 if isinstance(n, (int, float)) else 0
 
+def time_now():
+    return time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+
 def http_get(url, headers):
     return requests.get(
         url,

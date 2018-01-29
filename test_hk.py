@@ -3,34 +3,40 @@
 
 import os, sys, re
 import requests
+
 from bs4 import BeautifulSoup
+from collections import OrderedDict
 
 from ussBase import HTTP_HEADERS, http_get
 from hkConfig import *
 
-#market_highlights = OrderedDict()
+market_highlights = [
+    ('Traded', re.compile('Traded: (\d+)')),
+    ('Advanced', re.compile(r'Advanced\s+: (\d+)')), 
+    ('Declined', re.compile(r'Declined\s+: (\d+)')),
+    ('Unchanged', re.compile(r'Unchanged\s+: (\d+)')),
+    ('HK$', re.compile(r'\(HK\$\):\s+(.*)')),
+    ('Shares', re.compile(r'\(Shares\):\s+(.*)')),
+    ('Deals', re.compile(r'\(Deals\):\s+(.*)')),
+    ('CNY', re.compile(r'\(CNY\):\s+(.*)')),
+]
+
+def dataExtractor(raw):
+    if raw:
+        d = re.sub(r',', '', raw[0])
+        try:
+            return int(d)
+        except:
+            return -1
+    else:
+        return -255
 
 def summaryAnalyzer(ds):
-    r = ds.split('\r\n')
-    print r
-    for i in r:
-        j = i.encode('utf8')
-        if 'Traded' in j:
-            print 'Traded', re.findall(r'Traded: (\d+)', j)
-        if 'Advanced' in j:
-            print 'Advanced', re.findall(r'Advanced\s+: (\d+)', j)
-        if 'Declined' in j:
-            print 'Declined', re.findall(r'Declined\s+: (\d+)', j)
-        if 'Unchanged' in j:
-            print 'Unchanged', re.findall(r'Unchanged\s+: (\d+)', j)
-        if 'HK$' in j:
-            print j
-            print 'HK$', re.findall(r'\(HK$\):(.*)', j)
-        if 'Shares' in j:
-            print 'Shares', re.findall(r'\(Shares\):\s+(.*)', j)
-        if 'Deals' in j:
-            print 'Deals', re.findall(r'\(Deals\):\s+(.*)', j)
-
+    records = map(lambda x: x.encode('utf8'), ds.split('\r\n'))
+    for r in records:
+        for k,v in OrderedDict(market_highlights).items():
+            if k in r:
+                print k, '>>>', dataExtractor(re.findall(v, r))
 
 def indexAnalyzer(di):
     return di
@@ -45,6 +51,7 @@ def main():
     #url = HKEX_DAYQUOT_TPL % "180126"
     #print ">>>", url
     #res = http_get(url, HTTP_HEADERS)
+
     #if res.status_code == 200:
     #    html = res.content
     #    #print html
