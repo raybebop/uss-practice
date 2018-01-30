@@ -50,7 +50,10 @@ def indexAnalyzer(di):
                 vv = re.findall(v, r)
                 kk = re.sub(r' ', '', k[:-6])
                 if vv:
-                    result[kk] = re.sub(r'\s+', ' ', vv[0]).split(' ')
+                    result[kk] = map(
+                        lambda x: float(x),
+                        re.sub(r'\s+', ' ', vv[0]).split(' ')
+                    )
                 else:
                     result[kk] = []
     return result
