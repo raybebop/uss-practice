@@ -78,23 +78,24 @@ def sharesAnalyzer(ts):
     return ts
 
 def main():
+    #html = open(sys.argv[1], 'r').read()
+
     #tn = time_now()
     #ts = re.sub(r'[-|:]', '', tn)
     #print ts[2:8]
     #sys.exit()
 
-    #url = HKEX_DAYQUOT_TPL % "180126"
-    #print ">>>", url
-    #res = http_get(url, HTTP_HEADERS)
-    #if res.status_code == 200:
-    #    html = res.content
-    #    #print html
-    #    #print json.dumps(html, indent=4)
-    #else:
-    #    print 'ERROR: get stock data failed'
-    #    sys.exit(1)
+    url = HKEX_DAYQUOT_TPL % "180129"
+    print ">>>", url
+    res = http_get(url, HTTP_HEADERS)
+    if res.status_code == 200:
+        html = res.content
+        #print html
+        #print json.dumps(html, indent=4)
+    else:
+        print 'ERROR: get stock data failed'
+        sys.exit(1)
 
-    html = open(sys.argv[1], 'r').read()
     soup = BeautifulSoup(html, 'html.parser')
     mh = soup.find('a', attrs={'name':'market_highlights'})
     content = mh.next_sibling
