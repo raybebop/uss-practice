@@ -43,7 +43,7 @@ create table if not exists %s (
     pettm   REAL,
     volume  BIGINT,
     hasexist    BOOL,
-    timestamp INTEGER
+    ctime TIMESTAMP NOT NULL DEFAULT (datetime('now','localtime'))
 );
 '''
 
