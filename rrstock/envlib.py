@@ -5,7 +5,14 @@ environment library
 
 import os
 
-#WORKPATH = ''
+WORKPATH = '/home/stockpipe'
+
+DBPATH = '%s/database' % WORKPATH
+
+TPLPATH = '%s/template' % WORKPATH
+
+IMGPATH = '%s/image' % WORKPATH
+
 #LIST_TABLE_SQL = '%s_stock_list.sql'
 #DATA_TABLE_SQL = '%s_stock_data.sql'
 
