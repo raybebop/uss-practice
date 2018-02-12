@@ -29,8 +29,13 @@ class SqliteHandler(object):
         self.dbfile = dbfile
         self.list_tables = "SELECT name FROM sqlite_master WHERE type='table'"
         self.drop_table = "DROP TABLE IF EXISTS %s"
+        self.delete_table = "DELETE FROM %s"
     def conn(self):
         return sqlite3.connect(self.dbfile)
+    def list_tables(self, conn):
+        return conn.cursor().execute(self.)
+    def truncate_db(self, conn):
+
     #def cursor(self):
     #    self.cursor = self.conn.cursor()
     #def list_tables(self):
