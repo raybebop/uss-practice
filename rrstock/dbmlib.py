@@ -32,10 +32,6 @@ class SqliteHandler(object):
         self.delete_table = "DELETE FROM %s"
     def conn(self):
         return sqlite3.connect(self.dbfile)
-    def list_tables(self, conn):
-        return conn.cursor().execute(self.)
-    def truncate_db(self, conn):
-
     #def cursor(self):
     #    self.cursor = self.conn.cursor()
     #def list_tables(self):
