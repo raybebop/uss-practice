@@ -6,6 +6,20 @@ database/table/sql management library
 import os, sys
 import sqlite3
 
+#def truncateTable(DB):
+#    conn = sqlite3.connect(DB)
+#    cursor = conn.cursor()
+#    cursor.execute("BEGIN")
+#    tables = ['ussDayLine', 'ussWeekLine', 'ussMonthLine']
+#    for i in tables:
+#        SQL = 'DELETE FROM %s;' % i
+#        #print SQL
+#        cursor.execute(SQL)
+#    cursor.execute('VACUUM;')
+#    cursor.close()
+#    conn.commit()
+
+
 class SqliteHandler(object):
     def __init__(self, dbfile):
         if os.path.isfile(dbfile):
