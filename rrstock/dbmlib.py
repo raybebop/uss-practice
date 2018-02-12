@@ -27,21 +27,23 @@ class SqliteHandler(object):
         else:
             self.dbexist = False
         self.dbfile = dbfile
+        self.list_tables = "SELECT name FROM sqlite_master WHERE type='table'"
+        self.drop_table = "DROP TABLE IF EXISTS %s"
     def conn(self):
         return sqlite3.connect(self.dbfile)
-    def cursor(self):
-        self.cursor = self.conn.cursor()
-    def list_tables(self):
-        _sql = 'show tables'
-        return self.cursor.execute(_sql)
-    def execute(self, sql):
-        return self.cursor(sql)
-    def fetchall(self, ex):
-        return ex.fetchall()
-    def close():
-        self.cursor.close()
-        self.conn.commit()
-        self.conn.close()
+    #def cursor(self):
+    #    self.cursor = self.conn.cursor()
+    #def list_tables(self):
+    #    _sql = 'show tables'
+    #    return self.cursor.execute(_sql)
+    #def execute(self, sql):
+    #    return self.cursor(sql)
+    #def fetchall(self, ex):
+    #    return ex.fetchall()
+    #def close():
+    #    self.cursor.close()
+    #    self.conn.commit()
+    #    self.conn.close()
 
 STOCK_LIST_TPL = '''
 create table if not exists %s (
