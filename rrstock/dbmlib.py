@@ -33,7 +33,7 @@ class SqliteHandler(object):
         self.cursor = self.conn.cursor()
     def list_tables(self):
         _sql = 'show tables'
-        return self.cursor(_sql)
+        return self.cursor.execute(_sql)
     def execute(self, sql):
         return self.cursor(sql)
     def fetchall(self, ex):
