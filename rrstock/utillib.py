@@ -19,6 +19,11 @@ def genUrlByTemplate(tpl, val):
 def genTs(n):
     return n*1000 if isinstance(n, (int, float)) else 0
 
+def compare_two_lists(a, b):
+    intersection = set(a).intersection(b)
+    union = set(a).union(b)
+    return intersection, union
+
 def chomp(s):
     return s.rstrip('\n|\r\n')
 
