@@ -13,6 +13,8 @@ XQ_HKSTOCKLIST_URI = 'https://xueqiu.com/stock/cata/stocklist.json?page=%PAGE&si
 
 XQ_STOCKDATA_URI = 'https://xueqiu.com/stock/forchartk/stocklist.json?symbol=%SYMBOL&period=%PERIOD&type=normal&begin=%BEGIN_TS&end=%END_TS&_=%UNDERLINE'
 
+XQ_STOCKDATA_PERIODS = ['day', 'week', 'month']
+
 def gen_xq_ts(begin_date, end_date):
     '''generate timestamp by begin and end date like: gen_xq_ts('2014-01-01','2018-01-01')'''
     if begin_date:
