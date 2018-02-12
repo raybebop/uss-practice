@@ -23,8 +23,8 @@ IMGPATH = '%s/image' % WORKPATH
 #os.environ.has_key("HOME")
 #print os.environ.get('HOME','/home/username/')
 
-def get_env():
-    pass
-
-def set_env():
-    pass
+#def get_env():
+#    pass
+#
+#def set_env():
+#    pass

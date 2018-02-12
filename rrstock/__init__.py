@@ -15,6 +15,8 @@ from .utillib import (
     genUrlByTemplate,
 )
 
+from .envlib import *
+
 from .hkexlib import *
 
 from xqlib import *
