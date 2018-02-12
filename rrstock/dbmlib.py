@@ -28,7 +28,7 @@ class SqliteHandler(object):
             self.dbexist = False
         self.dbfile = dbfile
     def conn(self):
-        self.conn = sqlite3.connect(self.dbfile)
+        return sqlite3.connect(self.dbfile)
     def cursor(self):
         self.cursor = self.conn.cursor()
     def list_tables(self):
