@@ -6,6 +6,7 @@ from .dbmlib import (
 
 from .utillib import (
     genTs,
+    chomp,
     http_get,
     set_cookie,
     se_convert,

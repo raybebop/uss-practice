@@ -19,6 +19,9 @@ def genUrlByTemplate(tpl, val):
 def genTs(n):
     return n*1000 if isinstance(n, (int, float)) else 0
 
+def chomp(s):
+    return s.rstrip('\n|\r\n')
+
 def http_get(url, headers):
     return requests.get(
         url,
