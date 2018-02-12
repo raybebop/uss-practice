@@ -27,10 +27,10 @@ HTTP_HEADERS = {
     'Content-type': 'application/x-www-form-urlencoded',
 }
 
-def _set_xq_cookie():
+def set_xq_cookie():
     return set_cookie(XQ_HOMEPAGE_URI, HTTP_HEADERS)
 
-def _set_xq_header():
+def set_xq_header():
     XQ_HTTP_HEADERS = HTTP_HEADERS
     status, cookie = set_cookie(XQ_HOMEPAGE_URI, XQ_HTTP_HEADERS)
     if status == 200: XQ_HTTP_HEADERS['cookie'] = cookie
