@@ -28,7 +28,7 @@ class SqliteHandler(object):
             self.dbexist = False
         self.dbfile = dbfile
     def conn(self):
-        self.conn = sqlite3.connect(dbfile)
+        self.conn = sqlite3.connect(self.dbfile)
         self.cursor = conn.cursor
     def execute(self, sql):
         return self.cursor(sql)
