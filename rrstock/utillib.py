@@ -23,7 +23,7 @@ def genTs(n):
     return n*1000 if isinstance(n, (int, float)) else 0
 
 def shell_exec(cmd, std=0):
-    if std = 0:
+    if std == 0:
         return subprocess.call(cmd, shell=True)
     else:
         return Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
