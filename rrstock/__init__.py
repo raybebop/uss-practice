@@ -10,6 +10,7 @@ from .utillib import (
     http_get,
     set_cookie,
     se_convert,
+    shell_exec,
     time_now_fmt,
     time_now_its,
     UriTemplate,
