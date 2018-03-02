@@ -89,6 +89,7 @@ create table if not exists %s (
     macd REAL,
     lot_volume BIGINT,
     timestamp INTEGER,
-    time TEXT	
+    time TEXT,
+    ctime TIMESTAMP NOT NULL DEFAULT (datetime('now','localtime'))
 );
 '''
