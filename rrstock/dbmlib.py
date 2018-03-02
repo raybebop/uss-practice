@@ -70,8 +70,6 @@ create table if not exists %s (
 
 STOCK_DATA_TPL = '''
 create table if not exists %s (
-    symbol  VARCHAR(28),
-    name    VARCHAR(28),
     volume BIGINT,
     open REAL,
     high REAL,
