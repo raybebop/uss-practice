@@ -9,5 +9,4 @@ build
 # My configurations:
 *.db
 *.bak
-*.txt
 *.png
