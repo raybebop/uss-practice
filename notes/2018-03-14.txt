@@ -1,0 +1,6 @@
+1. {
+    半导体行业
+    <SOX/PHLX Semiconductor Sector> 費城半導體指數(Philadelphia Semiconductor Index)創立於1993年，為全球半導體業景氣主要指標之一。該指數有19個成分股，涵蓋半導體設計、設備、製造、銷售與配銷等面向，包括應用材料(Applied Materials)、超微(AMD)、博通(Broadcom)、飛思卡爾(Freescale)、英飛凌(Infinenon)、英特爾(Intel)、美光(Micron)、意法半導體(STMicroelectronics)、德儀(TI)、賽靈思(Xilinx)、國家半導體(National Semiconductor)、科磊(KLA-Tencor)、泰瑞達(Teradyne)、諾發(Novellus Systems)、Maxim、Marvell Technology、Linear Technology、Altera等，此外台積電的ADR也在此列。 
+    <industry>
+    <sector>
+}
