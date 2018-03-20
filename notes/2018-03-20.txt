@@ -1,6 +1,7 @@
 1. {
-    <> 通过抓取的咨询型网站
+    <> 通过抓取的资讯型网站
     <> http://www.alphaseek.cn/
     <> https://www.finviz.com/news.ashx
-
+    <> 新发现的资讯网站
+    <> https://seekingalpha.com/
 }
