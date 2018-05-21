@@ -47,6 +47,7 @@ def http_get(url, headers):
 def set_cookie(url, headers):
     try:
         r = http_get(url, headers)
+        return r.status_code, requests.utils.dict_from_cookiejar(r.cookies)
         return r.status_code, r.headers['set-cookie']
     except Exception, e:
         return 600, str(e)
